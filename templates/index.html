@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Used car Price Prediction</title>
+    
+    <style>
+      html, body {
+      min-height: 100%;
+      }
+      body, div, form, input, select, p { 
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 16px;
+      color: #eee;
+      }
+      body {
+      background: url("https://ocdn.eu/pulscms-transforms/1/ywGk9kpTURBXy85MDU1YzU4ZDNjZTI4NzMxYjYzNWViYWZlOGYyNTA2MC5qcGeSlQPMRwDNBvHNA-iTBc0DFs0Brt4AAaEwBQ") no-repeat center;
+      background-size: cover;
+      }
+      h1, h2 {
+      text-transform: uppercase;
+      font-weight: 400;
+      }
+      h2 {
+      margin: 0 0 0 8px;
+      }
+      .main-block {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      padding: 25px;
+      background: rgba(0, 0, 0, 0.5); 
+      }
+      .left-part, form {
+      padding: 25px;
+      }
+      .left-part {
+      text-align: center;
+      }
+      .fa-graduation-cap {
+      font-size: 72px;
+      }
+      form {
+      background: rgba(0, 0, 0, 0.7); 
+      }
+      .title {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      }
+      .info {
+      display: ruby-text;
+      flex-direction: column;
+      }
+      input, select {
+      padding: 5px;
+      margin-bottom: 30px;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #eee;
+      }
+      input::placeholder {
+      color: #eee;
+      }
+      option:focus {
+      border: none;
+      }
+      option {
+      background: black; 
+      border: none;
+      }
+      .checkbox input {
+      margin: 0 10px 0 0;
+      vertical-align: middle;
+      }
+      .checkbox a {
+      color: #26a9e0;
+      }
+      .checkbox a:hover {
+      color: #85d6de;
+      }
+      .btn-item, button {
+      padding: 10px 5px;
+      margin-top: 20px;
+      border-radius: 5px; 
+      border: none;
+      background: #26a9e0; 
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 400;
+      color: #fff;
+      }
+      .btn-item {
+      display: inline-block;
+      margin: 20px 5px 0;
+      }
+      button {
+      width: 100%;
+      }
+      button:hover, .btn-item:hover {
+      background: #85d6de;
+      }
+      @media (min-width: 568px) {
+      html, body {
+      height: 100%;
+      }
+      .main-block {
+      flex-direction: row;
+      height: calc(100% - 50px);
+      }
+      .left-part, form {
+      flex: 1;
+      height: auto;
+      }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-block">
+      <div class="left-part">
+        <i class="fas fa-graduation-cap"></i>
+        <h1>Car Price Predictor</h1>
+      </div>
+
+      <form method="POST" action="/valuation">
+        <div class="title">
+          <i class="fas fa-pencil-alt"></i> 
+          <h2>Select Car Features</h2>
+        </div>
+      
+        <div class="info">
+
+          <label></label>
+          <select  style="font-size:15px;" name = "Name">
+              <option value="Name" selected>Car Name</option>
+              <option value="Maruti" >Maruti</option>
+              <option value="Hyundai">Hyundai</option>
+              <option value="Honda">Honda</option>
+              <option value="Audi" >Audi</option>
+              <option value="Nissan">Nissan</option>
+              <option value="Toyota">Toyota</option>
+              <option value="Volkswagen" >Volkswagen</option>
+              <option value="Tata">Tata</option>
+              <option value="Mitsubishi">Mitsubishi</option>
+              <option value="Renault" >Renault</option>
+              <option value="Mercedes">Mercedes</option>
+              <option value="BMW">BMW</option>
+              <option value="Mahindra" >Mahindra</option>
+              <option value="Ford">Ford</option>
+              <option value="Porsche">Porsche</option>
+              <option value="Datsun" >Datsun</option>
+              <option value="Jaguar">Jaguar</option>
+              <option value="Volvo">Volvo</option>
+              <option value="Chevrolet" >Chevrolet</option>
+              <option value="Skoda">Skoda</option>
+              <option value="Fiat">Fiat</option>
+              <option value="Jeep" >Jeep</option>
+              <option value="Ambassador">Ambassador</option>
+              <option value="Force">Force</option>
+              <option value="Bentley" >Bentley</option>
+              <option value="Lamborghini">Lamborghini</option>
+            </select>
+
+          
+          <input type="text" name="Age" placeholder="Car Age">
+          <input type="text" name="Kilometers_Driven" placeholder="Running - Kms">
+          <!-- <input type="text" name="Transmission" placeholder="Manual / Automatic"> -->
+          <input type="text" name="Mileage" placeholder="Mileage-KMPL">
+          <input type="text" name="Power" placeholder="HorsePower-BHP">
+          <input type="text" name="Engine" placeholder="Engine-CC">
+          <!-- <input type="text" name="Owner_Type" placeholder="Owner - First/Second/Third"> -->
+          <input type="text" name="Seats" placeholder="Number Of Seats">
+          <!-- <input type="text" name="Fuel_Type" placeholder="Fuel Type"> -->
+          <!-- <input type="text" name="Location" placeholder="Location"> -->
+
+          <label></label>
+          <select  style="font-size:15px;" name = "Owner_Type">
+              <option value="Owner_Type" selected>Owner</option>
+              <option value="First" >First</option>
+              <option value="Second">Second</option>
+              <option value="Third">Third</option>
+              <option value="Fourth & Above">Fourth</option>
+            </select>
+
+            <label></label>
+          <select  style="font-size:15px;" name = "Transmission">
+              <option value="Transmission" selected>Mode</option>
+              <option value="Manual" >Manual</option>
+              <option value="Automatic" >Automatic</option>
+            </select>
+
+
+          <label></label>
+          <select  style="font-size:15px;" name = "Fuel_Type">
+              <option value="Fuel_Type" selected>Fuel Type</option>
+              <option value="Petrol">Petrol</option>
+              <option value="CNG">CNG</option>
+              <option value="Diesel">Diesel</option>
+              <option value="Electric">Electric</option>
+              <option value="LPG">LPG</option>
+          </select>
+
+          <label></label>
+          <select  style="font-size:15px;" name = "Location">
+              <option value="Location" selected>City</option>
+              <option value="Mumbai">Mumbai</option>
+              <option value="Pune">Pune</option>
+              <option value="Chennai">Chennai</option>
+              <option value="Coimbatore">Coimbatore</option>
+              <option value="Hyderabad">Hyderabad</option>
+              <option value="Jaipur">Jaipur</option>
+              <option value="Kochi">Kochi</option>
+              <option value="Kolkata">Kolkata</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Bangalore">Bangalore</option>
+              <option value="Ahmedabad">Ahmedabad</option>
+          </select>
+
+
+          <!-- <select>
+            <option value="Location" selected>Location</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Pune">Pune</option>
+            <option value="Chennai">Chennai</option>
+            <option value="Coimbatore">Coimbatore</option>
+            <option value="Hyderabad">Hyderabad</option>
+            <option value="Jaipur">Jaipur</option>
+            <option value="Kochi">Kochi</option>
+            <option value="Kolkata">Kolkata</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Bangalore">Bangalore</option>
+            <option value="Ahmedabad">Ahmedabad</option>
+          </select>
+
+          <select>
+            <option value="Fuel_Type" selected>Fuel Type</option>
+            <option value="Petrol">Petrol</option>
+            <option value="CNG">CNG</option>
+            <option value="Diesel">Diesel</option>
+            <option value="Electric">Electric</option>
+            <option value="LPG">LPG</option>
+          </select> -->
+        </div>
+        <button type="submit">Get Car Price</button>
+        <h3><strong> Selected CarPrice Will Be Around <b> Rs.{{Predicted_Price}} Lakhs </b> /- Only </strong></h3>
+      </form>
+    </div>
+  </body>
+</html>
